@@ -12,10 +12,24 @@ body {
 	font-family: "IBM Plex Sans", sans-serif;
 }
 
+h4 {
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+h2 {
+	margin-top: .3em;
+	margin-bottom: .3em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "IBM Plex Serif", sans-serif;
+}
+
 #title {
 	display: flex;
 	width: 100%;
-	height:95vh;
+	height:calc(98vh);
 	align-items: center;
 	justify-content: center;
 	background-color: white;
@@ -26,6 +40,125 @@ body {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	padding: .8em;
-	min-height: 90vh;
+	padding: .3em .4em .3em;
+	min-height: 60vh;
+	width: auto;
+}
+
+.content {
+	background-color: white;
+	border: .4em;
+	padding: .4em;
+	border-radius: .25em;
+	margin-right: .4em;
+	flex-grow: 2;
+}
+
+.content-image {
+	flex-basis: 30%;
+	border: 1em;
+	border-radius: .25em;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-clip: border-box;
+}
+
+.content-image > img {
+	width: 100%;
+	height: 100%;
+}
+
+.credits {
+	min-height: 20vh;
+}
+
+.credits > .content {
+	margin-right: 0;
+}
+
+.first-box > .content, .first-box >.content-image {
+	animation-name: "fake-loading";
+	animation-duration: .6s;
+	animation-delay: .2s;
+	animation-timing-function: ease-in-out;
+}
+
+#handcrafted {
+	position: fixed;
+	top: 0;
+	right: 0;
+	background-color: #d3d3cb;
+	border-bottom-left-radius: .3em;
+	padding: .2em;
+	font-size: .9em;
+	z-index: 3;
+	animation-name: "bounce-in";
+	animation-duration: .5s;
+	animation-timing-function: cubic-bezier(.77,.03,.35,.92);
+	/*animation-delay: .7s;*/
+}
+
+#handcrafted > a {
+	color: black;
+}
+
+#jumptocontent {
+	color: black;
+	font-size: 1.6em;
+}
+
+#jumptocontent > a {
+	text-decoration: none;
+	color: black !important;
+}
+
+@keyframes fake-loading {
+	0% {
+		transform: translateY(300px);
+	}
+	to {
+		transform: translateY(0px);
+	}
+}
+
+@keyframes bounce-in {
+	0% {
+		transform: translateX(100%);,
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+}
+
+@media (min-width: 1081px) { /* This code is for desktop, add does the fancy pantsy row reversal and margin magic */
+	.rev {
+		flex-direction: row-reverse;
+	}
+
+	.rev > .content {
+		margin-right: 0;
+		margin-left: .4em;
+	}
+
+	.content-image > img {
+		visibility: hidden;
+	}
+}
+
+@media (max-width: 1080px) { /* This coed is for mobile and switches to a vertical layout for those tall screens */
+	.content-box {
+		flex-direction: column;
+	}
+
+	.content {
+		margin: 0;
+		margin-bottom: .6em;
+	}
+
+	.content-image > img {
+		width: 100%;
+		height: 100%;
+	}
 }

@@ -1,0 +1,5 @@
+/* This CSS file is for adding images as backgrounds for divs, we do this as a workaround for making the images automatical resize on all platforms */
+
+.content-image {
+	background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.svg.png");
+}
