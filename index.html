@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Should prisons be able to vote?</title>
+	<title>Should prisoners be able to vote?</title>
 	<meta name="author" content="serverhiccups">
 	<meta charset="utf-8">
 	<meta name="description" content="A dive into the enfranchisment of prisoners in NZ">
@@ -58,10 +58,7 @@
 	let arrow = document.querySelector("#jumptocontent");
 	arrow.addEventListener('click', () => {
 		arrow.style.visibility = "hidden";
-		let amountToScroll = Math.floor(window.innerHeight / 3);
-		for (var i = 0; i < amountToScroll; i++) {
-			window.scrollBy(0, 1);
-		}
+		window.scrollBy(0, Math.floor(window.innerHeight / 3));
 	});
 </script>
 </html>
