@@ -18,8 +18,12 @@ h4 {
 }
 
 h2 {
-	margin-top: .3em;
-	margin-bottom: .3em;
+	margin: .3em;
+}
+
+#title > span {
+	margin-left: .3em;
+	margin-right: .3em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -160,5 +164,9 @@ h1, h2, h3, h4, h5, h6 {
 	.content-image > img {
 		width: 100%;
 		height: 100%;
+	}
+
+	.content-image {
+		background-size: 50%;
 	}
 }
