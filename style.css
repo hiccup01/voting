@@ -116,6 +116,16 @@ h1, h2, h3, h4, h5, h6 {
 	color: black !important;
 }
 
+#progressbar {
+	position: fixed;
+	height: .5em;
+	width: 0vw;
+	background: linear-gradient(to left, #1dfc00, #00fcde);
+	border-bottom-right-radius: .25em;
+	border-top-right-radius: .25em;
+	z-index: 5;
+}
+
 @keyframes fake-loading {
 	0% {
 		transform: translateY(300px);
@@ -149,9 +159,13 @@ h1, h2, h3, h4, h5, h6 {
 	.content-image > img {
 		visibility: hidden;
 	}
+
+	.content-image {
+		/*background-size: 100%;*/
+	}
 }
 
-@media (max-width: 1080px) { /* This coed is for mobile and switches to a vertical layout for those tall screens */
+@media (max-width: 1080px) { /* This code is for mobile and switches to a vertical layout for those tall screens */
 	.content-box {
 		flex-direction: column;
 	}

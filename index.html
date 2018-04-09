@@ -17,6 +17,7 @@
 	The text in each .content-box goes into a .content 
 -->
 <body>
+	<div id="progressbar"></div>
 	<div id="handcrafted">
 		<span><b>&lt&gt</b> with ❤️ by <a href="https://www.hiccup01.com">hiccup01</a></span>
 	</div>
@@ -31,8 +32,8 @@
 			<p>Incididunt in enim commodo deserunt sit aliqua irure amet sit irure nulla qui dolor non culpa culpa deserunt ea.</p>
 			
 		</div>
-		<div class="content-image" id="ballot-box">
-			<img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.svg.png">
+		<div class="content-image" id="behind-bars">
+			<img src="img/behind-bars.png">
 		</div>
 	</div>
 	<div class="content-box rev">
@@ -43,7 +44,7 @@
 			<p>Exercitation minim id laborum commodo reprehenderit non id dolor ut consectetur ut aliqua proident sit reprehenderit irure in do enim irure nisi pariatur veniam veniam consequat cillum culpa eiusmod ad reprehenderit dolore eu sunt consectetur ea reprehenderit quis esse cupidatat sed sed proident proident ullamco est proident labore nostrud magna elit fugiat laborum tempor duis proident in do sunt culpa cupidatat id cupidatat anim aliqua aliquip voluptate ut occaecat id consequat nisi excepteur sunt commodo exercitation quis cupidatat dolore do sit dolore ullamco exercitation velit esse exercitation ut dolor excepteur magna cillum ut sint laboris consectetur aliqua dolor ut tempor in ut ex ullamco dolor in sunt commodo ex aute exercitation dolore laborum ut non cupidatat occaecat occaecat veniam ea ad fugiat voluptate aute dolore officia mollit sint adipisicing veniam tempor est adipisicing nostrud officia in in nostrud magna aliqua ut consequat elit pariatur laboris consectetur deserunt ullamco aliqua consequat incididunt ut laboris incididunt officia non eu in eu est voluptate officia ex consequat ad mollit dolor exercitation in tempor duis sit fugiat magna adipisicing nostrud cillum velit et in ullamco in proident laborum excepteur et sunt adipisicing cillum eiusmod sunt nostrud veniam reprehenderit amet proident eu ad laborum irure dolor excepteur excepteur eu deserunt officia fugiat irure dolor in commodo sit duis tempor in exercitation ex ad veniam.</p>
 		</div>
 		<div class="content-image" id="ballot-box">
-			<img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Flag_of_Sweden.svg/1600px-Flag_of_Sweden.svg.png">
+			<img src="img/ballot-box.png">
 		</div>
 	</div>
 	<div class="content-box credits">
@@ -60,5 +61,20 @@
 		arrow.style.visibility = "hidden";
 		window.scrollBy(0, Math.floor(window.innerHeight / 3));
 	});
+	let windowHeight = Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
+	let viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+	let scrollableHeight = windowHeight - viewportHeight;
+	let scaleFactor = windowHeight / scrollableHeight;
+	let scaledScroll = window.scrollY * scaleFactor;
+	let percentScrolled = (windowHeight / scaledScroll)*100
+	window.onscroll = () => {
+		windowHeight = Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
+		viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+		scrollableHeight = windowHeight - viewportHeight;
+		percentScrolled = Math.ceil((scrollY / scrollableHeight)*100)
+		console.log(windowHeight);
+		console.log(`percentScrolled: ${percentScrolled}`);
+		document.querySelector("#progressbar").style.width = percentScrolled + "vw";
+	}
 </script>
 </html>
